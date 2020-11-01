@@ -29,3 +29,19 @@ Jetpack Compose를 사용하게 되면, 개발자가 OS 버전을 변경하지 �
  3. 시작 방법
   현재, 해당 프로젝트의 안드로이드 버전은 `Android Studio 4.2, Canary 12` 입니다.
   ![image](https://user-images.githubusercontent.com/22374750/97795163-2a6ce480-1c46-11eb-9f83-6153f639057d.png)
+
+- app/build.gradle
+``` gradle
+
+buildFeatures {
+  compose true
+}
+//...
+
+dependencies{
+  //현재 1.0.0-alpha06 버전
+  implementation "androidx.compose.ui:ui:1.0.0-alpha06"
+  implementation "androidx.compose.material:material:1.0.0-alpha06"
+  implementation "androidx.ui:ui-tooling:1.0.0-alpha06"
+}
+```
