@@ -26,9 +26,9 @@ Jetpack Compose를 사용하게 되면, 개발자가 OS 버전을 변경하지 �
 - Composable
  Android는 10년이 넘게 출시되면서, View 클래스에서만 1만줄 이상의 코드가 있게 되었습니다. 이는 레거시 코드이며, 이를 해결하기 위해서 Compose를 사용해서 처음부터 시작할 수 있습니다.
  
- 3. 시작 방법
-  현재, 해당 프로젝트의 안드로이드 버전은 `Android Studio 4.2, Canary 12` 입니다.
-  ![image](https://user-images.githubusercontent.com/22374750/97795163-2a6ce480-1c46-11eb-9f83-6153f639057d.png)
+ ### 3. 시작 방법
+현재, 해당 프로젝트의 안드로이드 버전은 `Android Studio 4.2, Canary 12` 입니다.
+![image](https://user-images.githubusercontent.com/22374750/97795163-2a6ce480-1c46-11eb-9f83-6153f639057d.png)
 
 - app/build.gradle
 ``` gradle
@@ -45,3 +45,27 @@ dependencies{
   implementation "androidx.ui:ui-tooling:1.0.0-alpha06"
 }
 ```
+- 기본 Android 코드
+``` kotlin
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            ComposeStudyTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(color = MaterialTheme.colors.background) {
+                    Greeting("Android")
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun Greeting(name: String) {
+    Text(text = "Hello $name!")
+}
+```
+
+- 시작화면 결과
+![image](https://user-images.githubusercontent.com/22374750/97795446-9bfa6200-1c49-11eb-8c00-1b5aed59814d.png)
