@@ -1,7 +1,7 @@
 # AndroidComposeStudy
 안드로이드 컴포즈에 대해서 공부하기 위해서 만드는 레파지토리.
 
-![공부자료](https://www.raywenderlich.com/7032631-jetpack-compose-tutorial-for-android-getting-started)
+[공부자료] : https://www.raywenderlich.com/7032631-jetpack-compose-tutorial-for-android-getting-started)
 
 ### 1. 서론
 모바일 앱 개발은 자주 트렌드가 바뀐다. 퍼포먼스, 안전성, 안정성 등이 중요하기 때문에 이 트렌드들을 아는 것은 중요합니다.
