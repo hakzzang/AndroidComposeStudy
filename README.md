@@ -148,6 +148,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 - 결과
+
 ![image](https://user-images.githubusercontent.com/22374750/97832074-41c6d300-1d15-11eb-884f-124085cec05b.png)
 
 ### 5. 챕터2
