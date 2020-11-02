@@ -3,6 +3,7 @@ package com.hbs.composestudy.ui
 sealed class ChapterType {
     object One : ChapterType()
     object Two : ChapterType()
+    object Three : ChapterType()
 }
 
 interface ChapterFactory {
@@ -18,6 +19,9 @@ class ChapterFactoryImpl : ChapterFactory{
             }
             ChapterType.Two -> {
                 ChapterTwoCompose()
+            }
+            ChapterType.Three ->{
+                ChapterThreeCompose()
             }
         }
     }
