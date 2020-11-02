@@ -70,3 +70,84 @@ fun Greeting(name: String) {
 - 시작화면 결과
 
 ![image](https://user-images.githubusercontent.com/22374750/97795446-9bfa6200-1c49-11eb-8c00-1b5aed59814d.png)
+
+### 4. 챕터1
+
+- ChapterOneCompose
+ ChapterOneCompose는 챕터별로 컴포즈를 꾸밀 수 있도록 코드를 나누기 위해서 1,2,3,4... 순으로 컴포즈 클래스를 만들 예정
+ 단순히, 메소드를 만드는 것을 통해서 Compose 뷰를 만든다는 것에 있어서, 클래스를 나누면서 좋은 의미를 발견했습니다.
+ 
+ 해당 코드의 의미는 Compose의 Text를 이용해서 4개의 Text 뷰를 만들었으며, ColorTextStyle을 통해서 TextStyle을 별도로 만들 수 있다는 것을 알게되는 코드입니다.
+ 
+```
+class ChapterOneCompose : ChapterCompose() {
+    @Composable
+    fun ColorTextStyle(color: Color): TextStyle {
+        return TextStyle(color = color, fontSize = 16.sp)
+    }
+
+    @Preview(showBackground = true)
+    @Composable
+    fun DefaultPreview() {
+        ComposeStudyTheme {
+            ContentView("감자튀김!")
+        }
+    }
+
+    @Composable
+    override fun ContentView(name : String) {
+        Text(text = "Hello1 $name!", style = ColorTextStyle(Color.Black))
+        Text(text = "Hello2 $name!", style = ColorTextStyle(Color.Yellow))
+        Text(text = "Hello3 $name!", style = ColorTextStyle(Color.Red))
+        Text(text = "Hello4 $name!", style = ColorTextStyle(Color.Gray))
+    }
+}
+```
+- ChapterFactory
+위에서 만들게 되는 컴포즈들을 생성하는 팩토리 클래스입니다.
+
+```
+sealed class ChapterType {
+    object One : ChapterType()
+}
+
+interface ChapterFactory {
+    fun makeChapter(chapterType: ChapterType): ChapterCompose
+}
+
+class ChapterFactoryImpl : ChapterFactory{
+
+    override fun makeChapter(chapterType: ChapterType): ChapterCompose {
+        return when (chapterType) {
+            ChapterType.One -> {
+                ChapterOneCompose()
+            }
+        }
+    }
+
+}
+```
+- MainActivity
+별도로, 메소드로 컴포즈를 만들더라도 정상적으로 작동하는 것을 알 수 있습니다.
+```
+class MainActivity : AppCompatActivity() {
+    private val chapterFactory = ChapterFactoryImpl()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            ComposeStudyTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(color = MaterialTheme.colors.background) {
+                    val chapterCompose= chapterFactory.makeChapter(ChapterType.One)
+                    chapterCompose.ContentView(name = "감자튀김")
+                }
+            }
+        }
+    }
+}
+```
+- 결과
+![image](https://user-images.githubusercontent.com/22374750/97832074-41c6d300-1d15-11eb-884f-124085cec05b.png)
+
+### 5. 챕터2
