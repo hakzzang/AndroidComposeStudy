@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
             ComposeStudyTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    val chapterCompose= chapterFactory.makeChapter(ChapterType.One)
+                    val chapterCompose= chapterFactory.makeChapter(ChapterType.Two)
                     chapterCompose.ContentView(name = "감자튀김")
                 }
             }

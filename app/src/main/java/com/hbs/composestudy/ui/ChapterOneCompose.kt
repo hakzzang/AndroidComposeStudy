@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.sp
 import androidx.ui.tooling.preview.Preview
 import com.hbs.composestudy.theme.ComposeStudyTheme
 
-class ChapterComposeOne : ChapterCompose() {
+class ChapterOneCompose : ChapterCompose() {
     @Composable
     fun ColorTextStyle(color: Color): TextStyle {
         return TextStyle(color = color, fontSize = 16.sp)
