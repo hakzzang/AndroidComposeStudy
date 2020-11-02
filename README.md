@@ -72,6 +72,7 @@ fun Greeting(name: String) {
 ![image](https://user-images.githubusercontent.com/22374750/97795446-9bfa6200-1c49-11eb-8c00-1b5aed59814d.png)
 
 ### 4. 챕터1
+* 목표 : 챕터1에서는 Compose를 통해서 Text를 만들고, Text의 스타일을 추가해줍니다.
 
 - ChapterOneCompose
  ChapterOneCompose는 챕터별로 컴포즈를 꾸밀 수 있도록 코드를 나누기 위해서 1,2,3,4... 순으로 컴포즈 클래스를 만들 예정
@@ -152,3 +153,40 @@ class MainActivity : AppCompatActivity() {
 ![image](https://user-images.githubusercontent.com/22374750/97832074-41c6d300-1d15-11eb-884f-124085cec05b.png)
 
 ### 5. 챕터2
+* 목표 : 챕터1에서 만든 Text를 리스트 형식으로 보여줍니다.
+
+- ChapterTwoCompose
+ 해당 컴포즈에서는 기존에 만든 4개의 Text에 Column을 감싸줌으로 인해서 세로형 리스트로 만드는 것을 보여줍니다.
+
+```
+
+class ChapterTwoCompose : ChapterCompose() {
+    @Composable
+    fun ColorTextStyle(color: Color): TextStyle {
+        return TextStyle(color = color, fontSize = 16.sp)
+    }
+
+    @Preview(showBackground = true)
+    @Composable
+    fun DefaultPreview() {
+        ComposeStudyTheme {
+            ContentView("감자튀김!")
+        }
+    }
+
+    @Composable
+    override fun ContentView(name : String) {
+        Column {
+            Text(text = "Hello1 $name!", style = ColorTextStyle(Color.Black))
+            Text(text = "Hello2 $name!", style = ColorTextStyle(Color.Yellow))
+            Text(text = "Hello3 $name!", style = ColorTextStyle(Color.Red))
+            Text(text = "Hello4 $name!", style = ColorTextStyle(Color.Gray))
+        }
+    }
+}
+```
+
+- 결과
+
+![image](https://user-images.githubusercontent.com/22374750/97834414-2a8ae400-1d1b-11eb-97b1-6edce0059e71.png)
+
