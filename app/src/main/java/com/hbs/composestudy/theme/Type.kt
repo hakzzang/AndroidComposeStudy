@@ -1,4 +1,4 @@
-package com.hbs.composestudy.ui
+package com.hbs.composestudy.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
