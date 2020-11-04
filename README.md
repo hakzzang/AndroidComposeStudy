@@ -24,17 +24,20 @@ MVC/MVP에서 MVVM의 아키텍처로 사용되어지는 이유는 리액티브�
 
 ### 2. Compose의 3가지 장점
 - Declarative
+
  Jetpack Compose는 선언형 UI 프레임워크이빈다. 기존의 명령형 프로그래밍 개념에 의존하지 않고, 뷰를 그릴 수 있습니다.
  View를 숨겨야하는 예제에서는, 기존에는 findViewById()를 통해 view에 접근해서, setVisibility()를 호출해야합니다.
  이 선언형 UI인 Compose에서는 별도로 객체에 접근하는 것이 아니라, 기존에 작성해놓은 코드를 다시 실행시켜서 이를 해결할 수 있고,
  기존에 View를 접근하는 방법을 통해서 뷰를 수정하지 않을 수 있다.
  
 - Independent
+
  만약에 LinearLayout의 새 버전이 나왔다고 하면, 새 버전의 OS가 필요했다. 이것은 조각화 문제로 인해서 운영체제가 다르더라도, 최신 UI를 사용하지 못 하는 현상을 해결할 수 있다.
 Jetpack Compose를 사용하게 되면, 개발자가 OS 버전을 변경하지 않더라도, 새로운 기능을 추가할 수 있습니다. 사용자 기기의 운영 체제에 관계 없이 작동에 의존할 수 있습니다.
 기존의 안드로이드 UI 키트에서 벗어나므로, View 계층으로 있는 오래된 문제를 해결하기 위한 시작점입니다.
 
 - Composable
+
  Android는 10년이 넘게 출시되면서, View 클래스에서만 1만줄 이상의 코드가 있게 되었습니다. 이는 레거시 코드이며, 이를 해결하기 위해서 Compose를 사용해서 처음부터 시작할 수 있습니다.
  
  ### 3. 시작 방법
@@ -91,7 +94,7 @@ fun Greeting(name: String) {
  
  해당 코드의 의미는 Compose의 Text를 이용해서 4개의 Text 뷰를 만들었으며, ColorTextStyle을 통해서 TextStyle을 별도로 만들 수 있다는 것을 알게되는 코드입니다.
  
-```
+``` kotlin
 class ChapterOneCompose : ChapterCompose() {
     @Composable
     fun ColorTextStyle(color: Color): TextStyle {
@@ -118,7 +121,7 @@ class ChapterOneCompose : ChapterCompose() {
 - ChapterFactory
 위에서 만들게 되는 컴포즈들을 생성하는 팩토리 클래스입니다.
 
-```
+``` kotlin
 sealed class ChapterType {
     object One : ChapterType()
 }
@@ -141,7 +144,7 @@ class ChapterFactoryImpl : ChapterFactory{
 ```
 - MainActivity
 별도로, 메소드로 컴포즈를 만들더라도 정상적으로 작동하는 것을 알 수 있습니다.
-```
+``` kotlin
 class MainActivity : AppCompatActivity() {
     private val chapterFactory = ChapterFactoryImpl()
 
@@ -169,8 +172,7 @@ class MainActivity : AppCompatActivity() {
 - ChapterTwoCompose
  해당 컴포즈에서는 기존에 만든 4개의 Text에 Column을 감싸줌으로 인해서 세로형 리스트로 만드는 것을 보여줍니다.
 
-```
-
+``` kotlin
 class ChapterTwoCompose : ChapterCompose() {
     @Composable
     fun ColorTextStyle(color: Color): TextStyle {
@@ -210,7 +212,7 @@ class ChapterTwoCompose : ChapterCompose() {
  튜토리얼을 보면서 뷰를 그리고 있었는데, 많은 부분 변화했고 검색을 통해서 비슷하게나마 만들다 보니까, 해당 뷰를 작성하는 시간이 오래 걸렸었습니다.
  챕터3를 만들면서 느낀 점은 튜토리얼을 통해서 접근하기에는 리소스도 적고, 원리를 이해하는 것이 힘들다는 것을 알게 되었습니다. 그래서 각 뷰를 1개씩 그릴 수 있는 튜토리얼을 진행하고자 합니다.
  
-```
+``` kotlin
 class ChapterThreeCompose : ChapterCompose() {
     @Composable
     fun ColorTextStyle(color: Color): TextStyle {
