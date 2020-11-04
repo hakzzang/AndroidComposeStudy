@@ -3,6 +3,16 @@
 
 [공부자료] : https://www.raywenderlich.com/7032631-jetpack-compose-tutorial-for-android-getting-started)
 
+### 구현 리스트 ✔️✔️
+[ ] Modifier
+[x] Chpater1
+[x] Chapter2
+[x] Chapter3
+
+### 메인 화면
+
+![image](https://user-images.githubusercontent.com/22374750/98081160-f1d54100-1eb9-11eb-9a99-a902f2295d7e.png)
+
 ### 1. 서론
 모바일 앱 개발은 자주 트렌드가 바뀐다. 퍼포먼스, 안전성, 안정성 등이 중요하기 때문에 이 트렌드들을 아는 것은 중요합니다.
 MVC/MVP에서 MVVM의 아키텍처로 사용되어지는 이유는 리액티브한 접근 때문일 지도 모릅니다. 뷰모델의 데이터스트림에 의해서 ui가 다시 그려지는 것은 MVVM의 장점이기 때문입니다.
@@ -71,7 +81,7 @@ fun Greeting(name: String) {
 
 ![image](https://user-images.githubusercontent.com/22374750/97795446-9bfa6200-1c49-11eb-8c00-1b5aed59814d.png)
 
-### 4. 챕터1
+### 챕터1
 * 목표 : 챕터1에서는 Compose를 통해서 Text를 만들고, Text의 스타일을 추가해줍니다.
 
 - ChapterOneCompose
@@ -152,7 +162,7 @@ class MainActivity : AppCompatActivity() {
 
 ![image](https://user-images.githubusercontent.com/22374750/97832074-41c6d300-1d15-11eb-884f-124085cec05b.png)
 
-### 5. 챕터2
+### 챕터2
 * 목표 : 챕터1에서 만든 Text를 리스트 형식으로 보여줍니다.
 
 - ChapterTwoCompose
@@ -190,7 +200,7 @@ class ChapterTwoCompose : ChapterCompose() {
 
 ![image](https://user-images.githubusercontent.com/22374750/97834414-2a8ae400-1d1b-11eb-97b1-6edce0059e71.png)
 
-### 6. 챕터3
+### 챕터3
 * 목표 : 카드 모양의 아이템을 갖고 있는 리스트뷰를 만들기
 
 - ChapterThreeCompose
