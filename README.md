@@ -190,3 +190,105 @@ class ChapterTwoCompose : ChapterCompose() {
 
 ![image](https://user-images.githubusercontent.com/22374750/97834414-2a8ae400-1d1b-11eb-97b1-6edce0059e71.png)
 
+### 6. 챕터3
+* 목표 : 카드 모양의 아이템을 갖고 있는 리스트뷰를 만들기
+
+- ChapterThreeCompose
+ 튜토리얼을 따라하면서, 챕터3를 만들었는데 컴포즈의 변화에 대해서 느낄 수 있었습니다. 해당 튜토리얼 코드가 1월에 작성되었는데, 1월에서 11월이 되는 동안 정말 많은 변화가 있었다는 것을 체감할 수 있었습니다.
+ FoodCard를 가운데에 놓기 위해서 LinearLayout에서 뷰를 그리는 것을 생각하게 되었습니다. Spacer,Card,Spacer 순으로 뷰가 만들어질 때 각 값에 weight을 줘서, 가운데 정렬을 그렸습니다. 그리고 카드뷰로 그리기 위해서 Card 뷰 안에 Column을 둬서 세로형으로 Image, Text를 정렬했습니다. 그리고, 카드 모양으로 주기 위해서 RoundedCornerShapre를 주었고, elevation을 통해서 입체감을 형성시켰습니다.
+ 튜토리얼을 보면서 뷰를 그리고 있었는데, 많은 부분 변화했고 검색을 통해서 비슷하게나마 만들다 보니까, 해당 뷰를 작성하는 시간이 오래 걸렸었습니다.
+ 챕터3를 만들면서 느낀 점은 튜토리얼을 통해서 접근하기에는 리소스도 적고, 원리를 이해하는 것이 힘들다는 것을 알게 되었습니다. 그래서 각 뷰를 1개씩 그릴 수 있는 튜토리얼을 진행하고자 합니다.
+ 
+```
+class ChapterThreeCompose : ChapterCompose() {
+    @Composable
+    fun ColorTextStyle(color: Color): TextStyle {
+        return TextStyle(color = color, fontSize = 16.sp)
+    }
+
+    @Composable
+    fun FoodCard(food: Food, onClick: (Food) -> Unit) {
+        val cardPadding = 16.dp
+        val foodImage = imageResource(food.imageResource)
+        Row {
+            Spacer(modifier = Modifier.weight(1f))
+            Card(
+                shape = RoundedCornerShape(8.dp),
+                elevation = 8.dp,
+                backgroundColor = MaterialTheme.colors.surface,
+                modifier = Modifier.weight(8f)
+            ) {
+                Column(
+                    Modifier
+                        .clickable(onClick = {
+                            onClick(food)
+                        })
+                        .padding(cardPadding)
+                        .fillMaxWidth()
+                ) {
+                    Image(
+                        foodImage,
+                        modifier = Modifier.fillMaxSize().clip(shape = RoundedCornerShape(8.dp)),
+                        contentScale = ContentScale.Crop
+                    )
+                    Column {
+                        Text(food.name)
+                        Text(food.content)
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.weight(1f))
+        }
+
+    }
+
+    @Preview(showBackground = true)
+    @Composable
+    fun DefaultPreview() {
+        ComposeStudyTheme {
+            ContentView("감자튀김!", makeFoodItems())
+        }
+    }
+
+    @Composable
+    override fun ContentView(name: String, foodItems: List<Food>) {
+        ScrollableColumn(Modifier.fillMaxSize().wrapContentSize(Alignment.Center)) {
+            foodItems.forEach { food ->
+                Spacer(Modifier.padding(16.dp))
+                FoodCard(food, onClick = { food ->
+
+                })
+            }
+        }
+    }
+
+    private fun makeFoodItems(): List<Food> {
+        return listOf(
+            Food(
+                R.drawable.french_fries,
+                "감자튀김",
+                "감자튀김은 맛있어."
+            ),
+            Food(
+                R.drawable.french_fries,
+                "감자튀김",
+                "감자튀김은 맛있어."
+            ),
+            Food(
+                R.drawable.french_fries,
+                "감자튀김",
+                "감자튀김은 맛있어."
+            ),
+            Food(
+                R.drawable.french_fries,
+                "감자튀김",
+                "감자튀김은 맛있어."
+            )
+        )
+    }
+}
+```
+
+- 결과
+
+![image](https://user-images.githubusercontent.com/22374750/98066971-d52a1080-1e9b-11eb-8028-1e3474c48f36.png)
