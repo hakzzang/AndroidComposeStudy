@@ -4,10 +4,11 @@
 [공부자료] : https://www.raywenderlich.com/7032631-jetpack-compose-tutorial-for-android-getting-started)
 
 ### 구현 리스트 ✔️✔️
-[ ] Modifier
-[x] Chpater1
-[x] Chapter2
-[x] Chapter3
+
+🔨 Modifier
+✔️ Chpater1
+✔️ Chapter2
+✔️ Chapter3
 
 ### 메인 화면
 
