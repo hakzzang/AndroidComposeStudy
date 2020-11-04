@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ComposeStudy">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.main.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.ComposeStudy.NoActionBar">
             <intent-filter>
@@ -20,7 +20,7 @@
         </activity>
 
         <activity
-            android:name=".ui.ChapterActivity"
+            android:name=".ui.chapter.ChapterActivity"
             android:theme="@style/Theme.ComposeStudy.NoActionBar">
         </activity>
 
