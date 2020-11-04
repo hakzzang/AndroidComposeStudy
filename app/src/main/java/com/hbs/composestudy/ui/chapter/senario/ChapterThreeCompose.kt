@@ -1,4 +1,4 @@
-package com.hbs.composestudy.ui
+package com.hbs.composestudy.ui.chapter.senario
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.ScrollableColumn
@@ -12,23 +12,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.imageResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.ui.tooling.preview.Preview
-import com.hbs.composestudy.R
+import com.hbs.composestudy.data.repository.ChapterRepository
+import com.hbs.composestudy.data.repository.ChapterRepositoryImpl
 import com.hbs.composestudy.model.Food
 import com.hbs.composestudy.theme.ComposeStudyTheme
 
 
 class ChapterThreeCompose : ChapterCompose() {
-    @Composable
-    fun ColorTextStyle(color: Color): TextStyle {
-        return TextStyle(color = color, fontSize = 16.sp)
-    }
+    private val chapterRepository: ChapterRepository = ChapterRepositoryImpl()
 
     @Composable
     fun FoodCard(food: Food, onClick: (Food) -> Unit) {
@@ -70,12 +65,13 @@ class ChapterThreeCompose : ChapterCompose() {
     @Composable
     fun DefaultPreview() {
         ComposeStudyTheme {
-            ContentView("감자튀김!", makeFoodItems())
+            ContentView()
         }
     }
 
     @Composable
-    override fun ContentView(name: String, foodItems: List<Food>) {
+    override fun ContentView() {
+        val foodItems = chapterRepository.makeFoodItems()
         ScrollableColumn(Modifier.fillMaxSize().wrapContentSize(Alignment.Center)) {
             foodItems.forEach { food ->
                 Spacer(Modifier.padding(16.dp))
@@ -84,30 +80,5 @@ class ChapterThreeCompose : ChapterCompose() {
                 })
             }
         }
-    }
-
-    private fun makeFoodItems(): List<Food> {
-        return listOf(
-            Food(
-                R.drawable.french_fries,
-                "감자튀김",
-                "감자튀김은 맛있어."
-            ),
-            Food(
-                R.drawable.french_fries,
-                "감자튀김",
-                "감자튀김은 맛있어."
-            ),
-            Food(
-                R.drawable.french_fries,
-                "감자튀김",
-                "감자튀김은 맛있어."
-            ),
-            Food(
-                R.drawable.french_fries,
-                "감자튀김",
-                "감자튀김은 맛있어."
-            )
-        )
     }
 }

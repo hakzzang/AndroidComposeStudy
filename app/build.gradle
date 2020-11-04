@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    //TODO : Parcelize 사용하는 용도로, 추후에 extensions가 deprecated가 되면 삭제하기
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -38,6 +40,7 @@ android {
         kotlinCompilerExtensionVersion compose_version
         kotlinCompilerVersion '1.4.0'
     }
+    androidExtensions { experimental = true }
 }
 
 dependencies {
