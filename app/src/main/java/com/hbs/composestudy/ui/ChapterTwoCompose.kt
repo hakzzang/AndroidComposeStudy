@@ -7,6 +7,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.sp
 import androidx.ui.tooling.preview.Preview
+import com.hbs.composestudy.model.Food
 import com.hbs.composestudy.theme.ComposeStudyTheme
 
 class ChapterTwoCompose : ChapterCompose() {
@@ -24,7 +25,7 @@ class ChapterTwoCompose : ChapterCompose() {
     }
 
     @Composable
-    override fun ContentView(name : String) {
+    override fun ContentView(name : String, foodItems: List<Food>) {
         Column {
             Text(text = "Hello1 $name!", style = ColorTextStyle(Color.Black))
             Text(text = "Hello2 $name!", style = ColorTextStyle(Color.Yellow))
