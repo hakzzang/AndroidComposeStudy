@@ -5,10 +5,10 @@
 
 ### 구현 리스트 ✔️✔️
 
-#### 🔨 Modifier
-#### ✔️ Chpater1
-#### ✔️ Chapter2
-#### ✔️ Chapter3
+🔨 Modifier <hr/>
+✔️ Chpater1 <hr/>
+✔️ Chapter2 <hr/>
+✔️ Chapter3 <hr/>
 
 ### 메인 화면
 
