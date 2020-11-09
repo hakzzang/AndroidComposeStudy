@@ -21,8 +21,7 @@
 
         <activity
             android:name=".ui.chapter.ChapterActivity"
-            android:theme="@style/Theme.ComposeStudy.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.ComposeStudy.NoActionBar" />
 
     </application>
 
